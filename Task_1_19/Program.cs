@@ -12,13 +12,13 @@ IfPalindrom(palindrom);                         // Запускается мет
 int InputInt()
 {
     bool isNum = int.TryParse(Console.ReadLine(), out int num);
-    if (isNum && num >= 10000 && num <= 99999)
+    if (isNum & num >= 10000 & num <= 99999)
     {
         return num;
     }
     else
     {
-        Console.WriteLine("Введено некорректное значение");
+        Console.WriteLine("Введено некорректное значение.");
         return -1;
     }
 }
@@ -41,10 +41,10 @@ void IfPalindrom(int[] Palindrom)
 {
     if (palindrom[0] == palindrom[4] && palindrom[1] == palindrom[3])
     {
-        Console.WriteLine($"Число { num} является палиндромом.");
+        Console.WriteLine($"Число {num} является палиндромом.");
     }
     else
     {
-        Console.WriteLine($"Число { num} не является палиндромом.");
+        Console.WriteLine($"Число {num} не является палиндромом.");
     }
 }
