@@ -9,7 +9,9 @@ int num = InputInt();
 
 int[] cubesTable = GetTableOfCubesOfNumbers(num);
 
-Console.Write($"Кубы чисел от 1 до {num}: | ");
+Console.WriteLine($"Кубы чисел от 1 до {num}:");
+
+Console.Write("| ");
 
 PrintArray(cubesTable);
 
@@ -25,7 +27,7 @@ int InputInt()
     }
     else
     {
-        Console.WriteLine("Введено некорректное значение");
+        Console.WriteLine("Введено некорректное значение.");
         return -1;
     }
 }
