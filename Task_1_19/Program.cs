@@ -2,16 +2,30 @@
 //Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом. 
 //Задание должно быть выполнено в методе. В методе не должно быть вывода в консоль. Не использовать String!
 
+
 Console.Write("Введите пятизначное число: ");
-int num = InputInt();			                // Запускается метод приема 5-значного числа, вводимого через консоль
-int[] palindrom = FillArray(num);	            // Запускается метод заполнения массива из знаков 5-значного числа
+
+int num = InputInt();			                
+
+if(num == -1)
+{
+    Console.WriteLine("Введено некорректное значение.");
+}
+
+int[] palindrom = FillArray(num);
+
+int result = IfPalindrom(palindrom);
+
+if(result == 1)
+{
+    Console.WriteLine($"Число является палиндромом.");
+}
+else
+{
+    Console.WriteLine($"Число не является палиндромом.");
+}
 
 
-
-
-
-//IfPalindrom(palindrom);                         // Запускается метод проверки на палиндром
-PrintPalindrom(palindrom);
 
 // Метод для приема пятизначного числа, вводимого через консоль
 
@@ -22,11 +36,7 @@ int InputInt()
     {
         return num;
     }
-    else
-    {
-        Console.WriteLine("Введено некорректное значение.");
-        return -1;
-    }
+    return -1;
 }
 
 
@@ -34,7 +44,7 @@ int InputInt()
 
 int[] FillArray(int num)
 {
-    int[] array = new int[5];    // {0,0,0,0,0}
+    int[] array = new int[5];
     for (int temp = num, i = 5; i >= 1; temp = temp / 10, i = i - 1)
     {
         array[i - 1] = temp % 10;
@@ -45,44 +55,14 @@ int[] FillArray(int num)
 
 // Метод проверки на палиндром
 
-void IfPalindrom(int[] palindrom)
-// {
-//     if (palindrom[0] == palindrom[4] && palindrom[1] == palindrom[3])
-//     {
-//         Console.WriteLine($"Число {num} является палиндромом.");
-//     }
-//     else
-//     {
-//         Console.WriteLine($"Число {num} не является палиндромом.");
-//     }
-// }
+int IfPalindrom(int[] palindrom)
 {
-    int[] ifPalindrom = new int[palindrom.Length];
-
-    int size = palindrom.Length;
-
-    for (int i = 0; i <= palindrom.Length - 1; i++, size = size - 1)
+    if (palindrom[0] == palindrom[4] && palindrom[1] == palindrom[3])
     {
-        ifPalindrom[i] = palindrom[size - 1];
-    }
-
-    if (palindrom == ifPalindrom)
-    {
-        Console.WriteLine($"Число {num} является палиндромом.");
+        return 1;
     }
     else
     {
-        Console.WriteLine($"Число {num} не является палиндромом.");
-    }
-}
-
-
-void PrintPalindrom(int[] palindrom)
-{
-    int count = palindrom.Length;
-    for (int i = 0; i < count; i++)
-    {
-        Console.Write($"{palindrom[i]} ");
-        //Console.Write($"{ifPalindrom[i]} ");
+        return 0;
     }
 }
