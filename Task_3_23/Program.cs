@@ -344,7 +344,7 @@ int[] FillArray(int[] arr)
     {
 		Console.WriteLine("Введите числа для формирования массива:");
 		Console.WriteLine($"Введите {i+1}-e числo:");
-	    int num = int.Parse(Console.ReadLine());
+	    	int num = int.Parse(Console.ReadLine());
 		arr[i] = num;
     }
     return arr;
@@ -357,7 +357,7 @@ void PrintArray (int[] array)
 {
 	for (i = 0; i < 8; i++)
 	{
-        Console.Write($"{array[i], ");
+        	Console.Write($"{array[i], ");
 	}
 }
 
